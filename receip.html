@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Favorite Recipes</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      margin: 0;
+      padding: 2rem;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    .recipe-list, .recipe-details {
+      max-width: 800px;
+      margin: auto;
+    }
+    .recipe {
+      background: white;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+    .recipe:hover {
+      background: #f0f0f0;
+    }
+    .back-btn {
+      margin-bottom: 1rem;
+      cursor: pointer;
+      color: green;
+      display: inline-block;
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>My Favorite Recipes</h1>
+
+  <div class="recipe-list">
+    <div class="recipe" onclick="showRecipe('spaghetti')">
+      <h2>Spaghetti Bolognese</h2>
+      <p>A classic Italian pasta dish with a rich meat sauce.</p>
+    </div>
+    <div class="recipe" onclick="showRecipe('pancakes')">
+      <h2>Fluffy Pancakes</h2>
+      <p>Light, airy pancakes perfect for breakfast or brunch.</p>
+    </div>
+  </div>
+
+  <div id="spaghetti" class="recipe-details hidden">
+    <span class="back-btn" onclick="goBack()">← Back to recipes</span>
+    <h2>Spaghetti Bolognese</h2>
+    <h4>Ingredients:</h4>
+    <ul>
+      <li>200g spaghetti</li>
+      <li>100g ground beef</li>
+      <li>1 onion, chopped</li>
+      <li>1 can tomato sauce</li>
+      <li>Salt, pepper, herbs</li>
+    </ul>
+    <h4>Instructions:</h4>
+    <ol>
+      <li>Cook the spaghetti until al dente.</li>
+      <li>Sauté onion and beef until browned.</li>
+      <li>Add tomato sauce and seasonings, simmer 15 min.</li>
+      <li>Combine with spaghetti and serve hot.</li>
+    </ol>
+  </div>
+
+  <div id="pancakes" class="recipe-details hidden">
+    <span class="back-btn" onclick="goBack()">← Back to recipes</span>
+    <h2>Fluffy Pancakes</h2>
+    <h4>Ingredients:</h4>
+    <ul>
+      <li>1 cup flour</li>
+      <li>2 tbsp sugar</li>
+      <li>1 tbsp baking powder</li>
+      <li>1 cup milk</li>
+      <li>1 egg</li>
+      <li>2 tbsp melted butter</li>
+    </ul>
+    <h4>Instructions:</h4>
+    <ol>
+      <li>Mix dry ingredients in one bowl.</li>
+      <li>Whisk wet ingredients in another.</li>
+      <li>Combine and cook on a hot pan until bubbles form.</li>
+      <li>Flip and cook until golden brown. Serve warm.</li>
+    </ol>
+  </div>
+
+  <script>
+    function showRecipe(id) {
+      document.querySelector('.recipe-list').classList.add('hidden');
+      document.getElementById(id).classList.remove('hidden');
+    }
+
+    function goBack() {
+      document.querySelectorAll('.recipe-details').forEach(el => el.classList.add('hidden'));
+      document.querySelector('.recipe-list').classList.remove('hidden');
+    }
+  </script>
+</body>
+</html>
